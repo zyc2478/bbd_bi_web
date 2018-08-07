@@ -138,13 +138,11 @@
                 setTimeout(() => {
 
                     this.axios({
-/*                        method: 'get',
-                        url: '/selectVwBidList',*/
-
-                        url: '/getLatestBidSummary/diffDays',
-                        params: {
+                        method: 'get',
+                        url: '/getLatestBidSummary'
+                        /*params: {
                             'diffDays': 30
-                        }
+                        }*/
 /*                        url: '/roles',
                         params: {x`
                             'page': 0,
