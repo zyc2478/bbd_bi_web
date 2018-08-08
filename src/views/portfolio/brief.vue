@@ -137,17 +137,11 @@
 
                 setTimeout(() => {
 
+                    var diffDays = 30
+
                     this.axios({
                         method: 'get',
-                        url: '/getLatestBidSummary'
-                        /*params: {
-                            'diffDays': 30
-                        }*/
-/*                        url: '/roles',
-                        params: {x`
-                            'page': 0,
-                            'pageSize': 5
-                        }*/
+                        url: '/getLatestBidSummary/'+diffDays,
                     }).then(function (response) {
                         serverData = response.data.data;
                         console.log("serverData:" + serverData);
@@ -177,93 +171,6 @@
                         alert(error);
                     });
                 },2000)
-
-
-                    /*this.$http.get('http://localhost:8089/bbd_ds/vwBidList/getVwBidList/30')
-                        .then(res => {
-                            console.log(1)
-                            console.log(res);
-                            console.log('res.bodyText' + res.bodyText)
-                            var resBody = res.bodyText
-                            console.log(JSON.parse(resBody))
-                            serverData = JSON.parse(resBody);
-                            console.log("asyncData.length = " + serverData.length);
-                            for (var i = 0; i < serverData.length; i++) {
-                                console.log("asyncData[i]['bid_count']:" + serverData[i]['bid_count']);
-                                console.log("asyncData[i]['bid_total_amount']:" + serverData[i]['bid_total_amount']);
-                                seriesCountData.push(serverData[i]['bid_count']);
-                                seriesAmountData.push(serverData[i]['bid_total_amount']);
-                                categoriesData.push(serverData[i]['bid_date']);
-                                if (serverData[i]['bid_count'] > count_max) {
-                                    count_max = serverData[i]['bid_count'];
-                                }
-                                if (serverData[i]['bid_total_amount'] > amount_max) {
-                                    amount_max = serverData[i]['bid_total_amount'];
-                                }
-                            }
-                            console.log("seriesCountData:" + seriesCountData);
-                            console.log("seriesAmountDate:" + seriesAmountData);
-                            lineCharts.addSeries({name: '投标数', data: seriesCountData});
-                            lineCharts.addSeries({name: '投标金额', data: seriesAmountData, yAxis: 1});
-                            lineCharts.getChart().xAxis[0].setCategories(categoriesData);
-
-                            lineCharts.hideLoading();
-
-                        })
-                        .catch(error=> {
-                            console.log(error);
-                        });
-                }, 2000)*/
-                    /*this.$http.get('http://localhost:8089/bbd_ds/vwBidList/getVwBidList/30')
-                        .then(function(res) {
-                            if (res.body.code === '200') {
-                                let serverData = response.body.data;
-                                console.log("asyncData.length = " + serverData.length);
-                                for (var i = 0; i < serverData.length; i++) {
-                                    console.log("asyncData[i]['bid_count']:" + serverData[i]['bid_count']);
-                                    console.log("asyncData[i]['bid_total_amount']:" + serverData[i]['bid_total_amount']);
-                                    seriesCountData.push(serverData[i]['bid_count']);
-                                    seriesAmountData.push(serverData[i]['bid_total_amount']);
-                                    categoriesData.push(serverData[i]['bid_date']);
-                                    if (serverData[i]['bid_count'] > count_max) {
-                                        count_max = serverData[i]['bid_count'];
-                                    }
-                                    if (serverData[i]['bid_total_amount'] > amount_max) {
-                                        amount_max = serverData[i]['bid_total_amount'];
-                                    }
-                                }
-                                console.log("seriesCountData:" + seriesCountData);
-                                console.log("seriesAmountDate:" + seriesAmountData);
-                                lineCharts.addSeries({name: '投标数', data: seriesCountData});
-                                lineCharts.addSeries({name: '投标金额', data: seriesAmountData, yAxis: 1});
-                                lineCharts.getChart().xAxis[0].setCategories(categoriesData);
-
-                                lineCharts.hideLoading();
-                            }
-                        });
-                }, 2000)*/
-                    /*console.log("asyncData.length = " + asyncData.length);
-                    for(var i = 0;i < asyncData.length; i++) {
-                        console.log("asyncData[i]['bid_count']:" + asyncData[i]['bid_count']);
-                        console.log("asyncData[i]['bid_total_amount']:" + asyncData[i]['bid_total_amount']);
-                        seriesCountData.push(asyncData[i]['bid_count']);
-                        seriesAmountData.push(asyncData[i]['bid_total_amount']);
-                        categoriesData.push(asyncData[i]['bid_date']);
-                        if(asyncData[i]['bid_count'] > count_max){
-                            count_max = asyncData[i]['bid_count'];
-                        }
-                        if(asyncData[i]['bid_total_amount'] > amount_max){
-                            amount_max = asyncData[i]['bid_total_amount'];
-                        }
-                    }
-                    console.log("seriesCountData:" + seriesCountData);
-                    console.log("seriesAmountDate:" + seriesAmountData);
-                    lineCharts.addSeries({name:'投标数',data:seriesCountData});
-                    lineCharts.addSeries({name:'投标金额',data:seriesAmountData,yAxis:1});
-                    lineCharts.getChart().xAxis[0].setCategories(categoriesData);
-
-                    lineCharts.hideLoading();
-                }, 2000)*/
             }
         }
     }
